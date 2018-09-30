@@ -1,0 +1,73 @@
+{
+    "name": "launch-configuration-templates",
+    "displayName": "Launch configuration templates",
+    "description": "Declare template launch configurations via user and workspace settings.",
+    "version": "0.0.1",
+    "publisher": "cspotcode",
+    "engines": {
+        "vscode": "^1.27.0"
+    },
+    "categories": [
+        "Debuggers"
+    ],
+    "activationEvents": [
+        "onDebug"
+    ],
+    "author": {
+        "name": "Andrew Bradley",
+        "url": "https://cspotcode.com"
+    },
+    "homepage": "https://github.com/cspotcode/vscode-launch-configuration-templates",
+    "bugs": {
+        "url": "https://github.com/cspotcode/vscode-launch-configuration-templates/issues"
+    },
+    "main": "./out/extension",
+    "contributes": {
+        "configuration": [
+            {
+                "title": "launch-configuration-templates",
+                "type": "object",
+                "properties": {
+                    "launch-configuration-templates.templates": {
+                        "type": "object",
+                        "default": {},
+                        "description": "Dictionary of launch configuration templates.  Keys in workspace settings override the same key in user settings.",
+                        "additionalProperties": {
+                            "type": "object",
+                            "properties": {
+                                "debugType": {
+                                    "type": "string"
+                                },
+                                "displayName": {
+                                    "type": "string"
+                                },
+                                "configuration": {
+                                    "type": "object"
+                                }
+                            },
+                            "required": [
+                                "debugType",
+                                "displayName",
+                                "configuration"
+                            ]
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^8.10.25",
+        "source-map-support": "^0.5.9",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21"
+    }
+}

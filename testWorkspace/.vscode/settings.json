@@ -1,0 +1,22 @@
+{
+    // "launch-configuration-templates.templates": {
+    //     "foo": {
+    //         "debugType": "node",
+    //         "configuration": {
+    //             "name": "hello world",
+    //             "type": "node",
+    //             "request": "attach"
+    //         },
+    //         "displayName": "run node in docker container"
+    //     }
+    // }
+    "launch-configuration-templates.templates": {
+        "thisisatemplate": {
+            "configuration": {
+                
+            },
+            "debugType": "node",
+            "displayName": "nodejshelloworld"
+        }
+    }
+}
